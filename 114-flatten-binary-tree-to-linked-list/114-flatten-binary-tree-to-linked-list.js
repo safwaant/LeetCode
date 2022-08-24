@@ -27,25 +27,3 @@ let flatten = (root) => {
    } 
    dfs(root);     
 };
-// Approach 1
-var flatten = function(root) {
-   let arr = [];
-   const preOrder = (root) => {
-      if(!root) return; 
-      arr.push(root.val);
-      preOrder(root.left);
-      preOrder(root.right); 
-   };
-   preOrder(root);
-   if(arr.length === 0) {
-       return arr;
-   }
-   root.right = null;
-   root.left = null;
-   let cur = root; 
-   for(let i = 1; i < arr.length; i++) {
-       cur.right = new TreeNode(arr[i]);
-       cur = cur.right;
-   } 
-   return root; 
-};
