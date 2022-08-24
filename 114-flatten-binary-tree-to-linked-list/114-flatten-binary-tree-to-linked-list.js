@@ -10,6 +10,24 @@
  * @param {TreeNode} root
  * @return {void} Do not return anything, modify root in-place instead.
  */
+// Approach 2
+let flatten = (root) => {
+   let prev = null; 
+   const dfs = root => {
+     // flatten the ROOT tree by keeping track of a previous pointer
+     if(!root) {
+         return null;
+     }
+     dfs(root.right);  
+     dfs(root.left);
+     
+     root.right = prev;
+     root.left = null;
+     prev = root;    
+   } 
+   dfs(root);     
+};
+// Approach 1
 var flatten = function(root) {
    let arr = [];
    const preOrder = (root) => {
