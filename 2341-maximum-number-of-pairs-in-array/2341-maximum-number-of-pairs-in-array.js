@@ -8,11 +8,10 @@ const numberOfPairs = (nums) => {
       map[cur] ??= 0, map[cur]++;
       return map;
    }, {})
-   console.log(m)
-   let temp = Object.keys(m);    
-   for(let i of temp) {
+   
+   for(let i of Object.keys(m)) {
       res[0] += Math.floor(m[i] / 2); 
+      res[1] += m[i] % 2; 
    }
-   res[1] = temp.filter(e => m[e] % 2 !== 0).length;
    return res;
 };
