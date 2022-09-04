@@ -7,7 +7,7 @@ const subarraySum = (nums, k) => {
    // total sum 
    let sum = 0, res = 0,
    // map to store prefix sums, starting at 0 = 1
-   // since a sum of 0 will always exists once
+   // for the edge case that a value - k will equal exactly 0
    m = {
     0:1
    };
