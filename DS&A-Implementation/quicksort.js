@@ -30,7 +30,7 @@ const partition = (arr, l, r) => {
    // set j to the left bound, aka one past i
    let i = l - 1, j = l;
    // iterate the right pointer j up until the pivot
-   for(; j < r - 1; j++) {
+   for(; j < r; j++) {
       // we have found a number less than the pivot
       if(arr[j] < pivot) {
          // move i to position to swap
