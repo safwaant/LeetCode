@@ -30,7 +30,7 @@ const partition = (arr, l, r) => {
    // set j to the left bound, aka one past i
    let i = l - 1, j = l;
    // iterate the right pointer j up until the pivot
-   while(j < r - 1) {
+   for(; j < r - 1; j++) {
       // we have found a number less than the pivot
       if(arr[j] < pivot) {
          // move i to position to swap
@@ -59,18 +59,20 @@ const quickSort = (arr, l, r) => {
       return;
    }
    // find the pivot index for the array and partition it
-   p = partition(arr, l, r);
-
-   // recursive call for quicksort
+   let p = partition(arr, l, r);
+   // recursive call for quicksort 
 
    // quicksorting the left half
    quickSort(arr, l, p - 1);
    // quicksorting the right half
    quickSort(arr, p + 1, r);
-
 }
 
 
-let input = prompt('Enter values for an array seperated by a comma and no spaces:\n');
-let arr = input.split(",");
-console.log(arr)
+let input = prompt('Enter values for an array seperated by a comma and no spaces: ');
+let arr = input.split(",").map(cur => Number(cur));
+console.log("Your array:");
+console.log(arr);
+quickSort(arr, 0, arr.length - 1);
+console.log("Sorted Array:");
+console.log(arr);
