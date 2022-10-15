@@ -16,7 +16,7 @@ const checkInclusion = (s1, s2) => {
         count[s2.charCodeAt(i)-97]--;
     }
     // if all char values are the same (both strings are anagrams) return true 
-    if (!count.some(e => e !== 0)) return true;
+    if (count.every(e => e === 0)) return true;
     
     // go thru the rest of the 
     for (let r = len1; r < len2; r++) {
@@ -25,7 +25,7 @@ const checkInclusion = (s1, s2) => {
         count[s2.charCodeAt(r)-97]--;
         count[s2.charCodeAt(l)-97]++;
         // check if all char values are the same
-        if (!count.some(e => e !== 0)) {
+        if (count.every(e => e === 0)) {
             return true;
         }
     }
